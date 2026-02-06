@@ -2364,7 +2364,7 @@ function toggleLanduse(cb) {
 
 const map=new maplibregl.Map({
  container:'map',
- style: 'https://api.maptiler.com/maps/topo-v2/style.json?key=VTyVRu9eUsVOXeBj5TqJ',
+ style: 'https://api.maptiler.com/maps/terrain/style.json?key=VTyVRu9eUsVOXeBj5TqJ'
  center:[ 81.312614, 18.606753],
   zoom: 18,               // 👈 close village view
   pitch: 60,                // 👈 3D angle
@@ -3521,29 +3521,7 @@ map.on('click', 'existing-assets-label', (e) => {
 });
 
 // ===== TERRAIN RGB SOURCE (DEM) =====
-map.addSource('terrain-dem', {
-  type: 'raster-dem',
-  tiles: [
-    'https://api.maptiler.com/tiles/terrain-rgb/{z}/{x}/{y}.png?key=VTyVRu9eUsVOXeBj5TqJ'
-  ],
-  tileSize: 256,
-  encoding: 'mapbox'
-});
-// ===== HILLSHADE LAYER =====
-map.addLayer(
-  {
-    id: 'hillshade',
-    type: 'hillshade',
-    source: 'terrain-dem',
-    paint: {
-      'hillshade-exaggeration': 1.2,
-      'hillshade-shadow-color': '#473b24',
-      'hillshade-highlight-color': '#ffffff',
-      'hillshade-accent-color': '#8b7355'
-    }
-  },
-  'boundary' // 👈 place BELOW village boundary
-);
+
 
 /* PROPOSED ASSETS – COLORED AS PER ACTUAL LAYER VALUES */
 map.addSource('points',{
