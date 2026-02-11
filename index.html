@@ -2364,7 +2364,7 @@ function toggleLanduse(cb) {
 
 const map=new maplibregl.Map({
  container:'map',
- style: 'https://api.maptiler.com/maps/terrain/style.json?key=VTyVRu9eUsVOXeBj5TqJ'
+ style: 'https://api.maptiler.com/maps/topo-v2/style.json?key=VTyVRu9eUsVOXeBj5TqJ',
  center:[ 81.312614, 18.606753],
   zoom: 18,               // 👈 close village view
   pitch: 60,                // 👈 3D angle
@@ -2434,7 +2434,8 @@ map.addLayer({
 });
 
 
-/* map.addSource('satellite',{
+/* SATELLITE */
+map.addSource('satellite',{
   type:'raster',
   tiles:[
     'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
@@ -2449,7 +2450,6 @@ map.addLayer({
   source:'satellite',
   layout:{ visibility:'none' }
 });
-
 
 /* CUSTOM MAPTILER TILESET */
 map.addSource('custom-tiles', {
@@ -3524,7 +3524,6 @@ map.on('click', 'existing-assets-label', (e) => {
 
 });
 
-// ===== TERRAIN RGB SOURCE (DEM) =====
 
 
 /* PROPOSED ASSETS – COLORED AS PER ACTUAL LAYER VALUES */
