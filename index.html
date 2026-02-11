@@ -2434,18 +2434,22 @@ map.addLayer({
 });
 
 
-/* SATELLITE */
-map.addSource('satellite',{
- type:'raster',
- tiles:['https://api.maptiler.com/maps/hybrid-v4/256/{z}/{x}/{y}.jpg?key=VTyVRu9eUsVOXeBj5TqJ'],
- tileSize:256
+/* map.addSource('satellite',{
+  type:'raster',
+  tiles:[
+    'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
+  ],
+  tileSize:256,
+  attribution: '© Google'
 });
+
 map.addLayer({
- id:'satellite',
- type:'raster',
- source:'satellite',
- layout:{visibility:'none'}
+  id:'satellite',
+  type:'raster',
+  source:'satellite',
+  layout:{ visibility:'none' }
 });
+
 
 /* CUSTOM MAPTILER TILESET */
 map.addSource('custom-tiles', {
